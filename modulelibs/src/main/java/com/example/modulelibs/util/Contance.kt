@@ -15,4 +15,5 @@ package com.example.modulelibs.util
 object Contance {
     const val ACTIVITY_MAIN = "/modulemain/main"
     const val ACTIVITY_ONE = "/moduleone/main"
+    const val ACTIVITY_TWO = "/moduletwo/main"
 }

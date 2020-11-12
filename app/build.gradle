@@ -48,6 +48,7 @@ dependencies {
     if(!isApplication.toBoolean()){
         implementation project(path: ':modulemain')
         implementation project(path: ':moduleone')
+        implementation project(path: ':moduletwo')
     }
 
     //ARouter

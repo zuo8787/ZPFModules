@@ -19,6 +19,10 @@ class MainActivity : BaseActivity() {
         openoneButton.setOnClickListener{
             ARouter.getInstance().build(Contance.ACTIVITY_ONE).navigation()
         }
+        var opentwoButton = findViewById<Button>(R.id.btn_opentwo)
+        opentwoButton.setOnClickListener{
+            ARouter.getInstance().build(Contance.ACTIVITY_TWO).navigation()
+        }
     }
 
     override fun getLayoutId(): Int {

@@ -1,2 +1,2 @@
-include ':app', ':modulemain', ':moduleone', ':modulelibs'
+include ':app', ':modulemain', ':moduleone', ':modulelibs', ':moduletwo'
 rootProject.name='ZPFModules'
