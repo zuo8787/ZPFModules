@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion CompileSdkVersion.toInteger()
+    buildToolsVersion BuildToolsVersion
+    defaultConfig {
+        applicationId "com.example.zpfmodules"
+        minSdkVersion MinSdkVersion.toInteger()
+        targetSdkVersion TargetSdkVersion.toInteger()
+        versionCode VersionCode.toInteger()
+        versionName VersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        dataBinding{
+            enabled true
+        }
+
+//        kapt {
+//            arguments {
+//                arg("AROUTER_MODULE_NAME", project.getName())
+//            }
+//        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation project(path: ':modulelibs')
+    if(!isApplication.toBoolean()){
+        implementation project(path: ':modulemain')
+        implementation project(path: ':moduleone')
+    }
+
+    //ARouter
+//    kapt  'com.alibaba:arouter-compiler:1.2.2'
+}
