@@ -34,7 +34,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private void init(Bundle savedInstanceState){
         //加载布局
-        setContentView(getLayoutId());
         mContext = this;
         initView(savedInstanceState);
         initData();
@@ -45,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 交由子类实现
      * @return
      */
-    protected abstract int getLayoutId();
+    //protected abstract int getLayoutId();
 
     /**
      * 初始化view

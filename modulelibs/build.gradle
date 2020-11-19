@@ -36,4 +36,11 @@ dependencies {
 
     //ARouter
     api 'com.alibaba:arouter-api:1.5.0'
+
+    //utils工具类:https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    api 'com.blankj:utilcodex:1.30.5'
+
+    api 'com.google.android:flexbox:1.0.0'
+
+    api "androidx.recyclerview:recyclerview:1.1.0-alpha05"
 }

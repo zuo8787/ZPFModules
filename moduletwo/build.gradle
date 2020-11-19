@@ -22,6 +22,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        dataBinding{
+            enabled true
+        }
+
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())

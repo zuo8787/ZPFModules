@@ -10,6 +10,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         var openmainButton = findViewById<Button>(R.id.btn_openmain)
         openmainButton.setOnClickListener{
@@ -17,7 +18,7 @@ class MainActivity : BaseActivity() {
         }
         var openoneButton = findViewById<Button>(R.id.btn_openone)
         openoneButton.setOnClickListener{
-            ARouter.getInstance().build(Contance.ACTIVITY_ONE).navigation()
+            ARouter.getInstance().build(Contance.ACTIVITY_ONE).withString(Contance.ACTIVITY_ONE+"test","我是带参").navigation()
         }
         var opentwoButton = findViewById<Button>(R.id.btn_opentwo)
         opentwoButton.setOnClickListener{
@@ -25,7 +26,4 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_main
-    }
 }

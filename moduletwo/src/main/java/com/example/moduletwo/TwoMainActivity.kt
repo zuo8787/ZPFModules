@@ -11,9 +11,7 @@ class TwoMainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_two_main)
     }
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_two_main
-    }
 }

@@ -22,6 +22,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        dataBinding{
+            enabled true
+        }
+
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
@@ -67,4 +71,5 @@ dependencies {
     implementation project(path: ':modulelibs')
     //ARouter
     kapt  'com.alibaba:arouter-compiler:1.2.2'
+
 }
