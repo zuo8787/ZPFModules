@@ -28,7 +28,6 @@ class MainActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_module_main)
 
         initRecycler()
-
     }
 
     fun initRecycler(){
