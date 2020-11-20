@@ -1,6 +1,9 @@
 package com.example.modulelibs.util;
 
 import android.app.Activity;
+import android.util.Log;
+
+import com.blankj.utilcode.util.LogUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -31,27 +34,31 @@ public class EventUtils{
         }
     }
 
-    public void post(String functionName,String message){
+    public Object post(String functionName,Object message){
         Activity activity = functionList.get(functionName);
+        Object returnObj = null;
         if(activity == null){
-            return;
+            return null;
         }
         Class acitvityClass = activity.getClass();
         Method[] activityMethod = acitvityClass.getDeclaredMethods();
         for (Method method : activityMethod) {
             MyEventMsg myEventMsg =method.getAnnotation(MyEventMsg.class);
-            if(myEventMsg != null && functionName == myEventMsg.eventCode()){
+            if(myEventMsg != null && functionName == myEventMsg.functionName()){
                 method.setAccessible(true);
                 try {
-                    method.invoke(activity,message);
+                    returnObj = method.invoke(activity,message);
+                    LogUtils.i(returnObj.toString());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
+                }finally {
+                    method.setAccessible(false);
                 }
-                method.setAccessible(false);
             }
         }
+        return returnObj;
     }
 
     public void destroy(Object object){

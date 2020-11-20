@@ -8,6 +8,9 @@
             name="param"
             type="String"
             />
+        <variable
+            name="viewmodle"
+            type="com.example.moduleone.OneMainViewModel" />
     </data>
 
     <LinearLayout
@@ -19,6 +22,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text='@{"activity_one_main!"+param}' />
+        <Button
+            android:id="@+id/btn_number1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"方式一：databinding设置viewmodle刷新："+String.valueOf(viewmodle.number1)}'/>
+        <Button
+            android:id="@+id/btn_number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"方式二：observer监听执行刷新："+String.valueOf(viewmodle.number2)}'/>
+        <Button
+            android:id="@+id/btn_number3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"方式三：用自定义注解执行刷新："+String.valueOf(viewmodle.number3)}'/>
         <Button
             android:id="@+id/btn_annotation"
             android:layout_width="wrap_content"

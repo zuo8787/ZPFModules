@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyEventMsg {
-    String eventCode();
+    String functionName();
     //String[] eventMsg();
 }
 

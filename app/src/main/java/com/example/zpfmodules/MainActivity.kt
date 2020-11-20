@@ -3,6 +3,7 @@ package com.example.zpfmodules
 import android.os.Bundle
 import android.widget.Button
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.LogUtils
 import com.example.modulelibs.base.BaseActivity
 import com.example.modulelibs.util.Contance
 import com.example.modulelibs.util.EventUtils
@@ -36,9 +37,16 @@ class MainActivity : BaseActivity() {
         EventUtils.getInstance().destroy(this)
     }
 
-    @MyEventMsg(eventCode = "testMyEventMsg")
-    fun testMyEventMsg(msg:String){
+    @MyEventMsg(functionName = Contance.TEST_MY_EVENTMSG)
+    fun testMyEventMsg(msg:String):String{
         ToastUtil.showToast(this,msg)
+        return msg
+    }
+
+    @MyEventMsg(functionName = Contance.ADD_NUMBER)
+    fun addNumber(number:Int):Int{
+        var number = number
+        return ++number
     }
 
 }
